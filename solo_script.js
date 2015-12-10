@@ -1,5 +1,5 @@
 // ! ! !
-// Three Bugs - line 21 changed argument to (array[i]) - line 31 changed array[0] to array[i][0] - line 66 removed -1
+// Three Bugs - line 19 changed argument to (array[i]) - line 29 changed array[0] to array[i][0] - line 66 removed -1
 
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
 var arrayJem = ["Jem", "62347", "63500", 4];
