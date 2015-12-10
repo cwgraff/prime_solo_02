@@ -1,5 +1,5 @@
 // ! ! !
-// Three Bugs
+// Three Bugs - line 21 changed argument to (array[i]) - line 31 changed array[0] to array[i][0] - line 66 removed -1
 
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
 var arrayJem = ["Jem", "62347", "63500", 4];
@@ -16,7 +16,7 @@ position = document.getElementById('content');
 //Loop the array, extracting each array and writing information to the DOM
 //Note that the information is not 'clean'
 for(var i = 0; i < array.length; i++){
-	array[i] = calculateSTI(array);
+	array[i] = calculateSTI(array[i]);
  	newEl = document.createElement('li');
 	newText = document.createTextNode(array[i]);
 	newEl.appendChild(newText);
@@ -26,7 +26,7 @@ for(var i = 0; i < array.length; i++){
 function calculateSTI(array1){
   var newArray = [];
 
-  newArray[0] = array1[0];
+  newArray[0] = array[i][0];
 
   var employeeNumber = array1[1];
   var baseSalary = array1[2];
@@ -35,10 +35,10 @@ function calculateSTI(array1){
   var bonus = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
   if(bonus > 0.13){
     bonus = 0.13;
-  }
+          }
 
   newArray[1] = bonus;
-  newArray[2] = baseSalary * (1.0 + bonus);
+  newArray[2] = parseInt(baseSalary) * (1.0 + bonus);
   newArray[3] = Math.round(baseSalary * bonus);
   console.log(newArray[0] + " " + newArray[1] + " " + newArray[2] + " " + newArray[3]);
   return newArray;
@@ -63,7 +63,7 @@ function getBaseSTI(reviewScore){
       basePercent = 0.10;
       break;
   }
-  return basePercent - 1;
+  return basePercent;
 }
 
 function getYearAdjustment(employeeNumber){
